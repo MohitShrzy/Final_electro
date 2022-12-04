@@ -1,0 +1,19 @@
+<table>
+<tr>
+<% count=0 %>
+<% @laptop_gallery.each do |laptop|%>
+<% if (count % 3) == 0%>
+</tr>
+<tr>
+<% end %>
+<% count+=1 %>
+<td><%= image_tag laptop.product_image ,:height=>"300",:width=>"400" %><br />
+<%= laptop.Brand %><br />
+Processor :<%= laptop.Processor %><br />
+Description :<%= laptop.Description %><br />
+Price : <%= laptop.Price %><br />
+<%= button_to 'Buy now',line_items_path(:store_id => laptop.id)%>
+ </td>
+<% end %>
+</tr>
+</table>
